@@ -2,7 +2,7 @@
 CHANGES
 =======
 
-1.4.0 (unreleased)
+1.4.0 (2013-05-31)
 ------------------
 
 - Made tests compatible with ``zope.browserresource`` 3.11, thus requiring

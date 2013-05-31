@@ -21,7 +21,7 @@ def read(*rnames):
 
 
 setup(name='z3c.zrtresource',
-      version='1.4.0dev',
+      version='1.4.0',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
       description='Zope Resource Templates',
