@@ -20,11 +20,8 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 
-version = '1.4.0dev'
-
-
 setup(name='z3c.zrtresource',
-      version=version,
+      version='1.4.0dev',
       author='Zope Corporation and Contributors',
       author_email='zope-dev@zope.org',
       description='Zope Resource Templates',
