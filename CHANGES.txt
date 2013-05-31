@@ -8,6 +8,8 @@ CHANGES
 - Made tests compatible with ``zope.browserresource`` 3.11, thus requiring
   at least this version.
 
+- Fix: work around windows: it has a 2 char next line sequence
+
 
 1.3.0 (2009-08-27)
 ------------------

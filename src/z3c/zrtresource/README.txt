@@ -325,3 +325,27 @@ utilities).
     background: url('../img2/mybackground.gif');
   }
   <BLANKLINE>
+
+Edge case
+---------
+
+On windows blank lines were left in the result
+
+  >>> open(fn, 'w').write('''\
+  ... some-head
+  ... /* zrt-replace: "../img1" "++resource++/img" */
+  ... /* zrt-replace: "fontName" "Arial, Tahoma" */
+  ... some-in-the-middle
+  ... /* zrt-replace: "../img2" "++resource++/img" */
+  ... some-at-the-end
+  ... ''')
+
+  >>> cssFactory = ZRTFileResourceFactory(fn, None, 'site.css')
+
+  >>> from zope.publisher.browser import TestRequest
+  >>> css = cssFactory(TestRequest())
+
+and render the resource:
+
+  >>> css.GET().splitlines()
+  ['some-head', 'some-in-the-middle', 'some-at-the-end']

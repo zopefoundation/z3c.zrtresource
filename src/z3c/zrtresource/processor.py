@@ -50,13 +50,18 @@ class ZRTProcessor(object):
         # Regular Expression to find commands.
         regex = re.compile(COMMAND_REGEX %(self.commandStartRegex,
                                            self.commandEndRegex))
+        nextlinelen = 1
+        if '\r\n' in self.source:
+            # work around windows: it has a 2 char next line sequence
+            nextlinelen = 2
+
         # Find all commands
         for match in regex.finditer(self.source):
             command, args = match.groups()
 
             # Add the previous text block and update position
             bytecode.append((TEXTBLOCK, self.source[pos:match.start()]))
-            pos = match.end() + 1
+            pos = match.end() + nextlinelen
 
             # Make sure the command exists
             if command not in self.commands:
